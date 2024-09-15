@@ -31,6 +31,47 @@ p {
   padding: 0;
 }
 
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  background: white;
+  display: block;
+  min-height: 0;
+  box-sizing: content-box;
+}
+
+nav ul {
+  list-style-type: none;
+  display: flex;
+  padding: 0;
+  margin: 0;
+}
+
+nav ul li {
+  padding: 0;
+}
+
+nav a {
+  display: inline-block;
+  text-decoration: none;
+  color: black;
+  margin: 0;
+  font-size: 1rem;
+  padding: 1rem;
+}
+
+nav a:hover {
+  color: silver;
+}
+
+nav a.active {
+  color: silver;
+}
+
+
 .banner {
   display: flex;
   flex-direction: column;

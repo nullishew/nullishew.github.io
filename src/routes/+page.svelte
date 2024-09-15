@@ -1,4 +1,34 @@
+<script>
+  $effect(() => {
+		const navObserver = new IntersectionObserver(
+			(entries) =>
+				entries.forEach((entry) => {
+					const isActive = entry.isIntersecting && entry.intersectionRatio > 0.5;
+					const elem = entry.target;
+					elem.classList.toggle('active', isActive);
+					document
+						.querySelectorAll(`[href="#${elem.getAttribute('id')}"]`)
+						.forEach((elem) => elem.classList.toggle('active', isActive));
+				}),
+			{ threshold: 0.5 }
+		);
 
+		[...document.querySelectorAll('section')]
+			.filter((elem) => elem.hasAttribute('id'))
+			.forEach((elem) => navObserver.observe(elem));
+	});
+</script>
+
+<header>
+	<nav>
+		<ul>
+			<li><a href="#home">Home</a></li>
+			<li><a href="#about">About</a></li>
+			<li><a href="#experience">Experience</a></li>
+			<li><a href="#projects">Projects</a></li>
+		</ul>
+	</nav>
+</header>
 
 <section class="banner" id="home">
 	<div class="parallax" style="position:absolute;z-index:-1">
